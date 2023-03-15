@@ -26,8 +26,6 @@
 // console.log(result); // 1
 
 
-sub = (n1, n2) => {
-        return n1 - n2;
-    } // 익명함수
+sub = (n1, n2) => n1 - n2; // 익명함수
 result = sub(3, 2); // 1
 console.log(result); // 1
