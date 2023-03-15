@@ -30,9 +30,10 @@
 // result = sub(3, 2); // 1
 // console.log(result); // 1
 
-square = (num) => {
-    return num * num;
-}
+// square = (num) => {
+//     return num * num;
+// }
+square = num => num * num; // 매개변수가 하나일 때는 괄호 생략 가능
 
 result = square(3); // 9
 console.log(result); // 9
