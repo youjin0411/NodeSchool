@@ -19,3 +19,9 @@ console.log(typeof undefined); //undefined
 
 console.log(null == undefined); //true
 console.log(null === undefined); //false
+
+//출력 시 null이 나오는 것들	
+//1. 객체가 없을 때
+let temp = null;
+let string = ''
+console.log(typeof temp); //object

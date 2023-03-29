@@ -1,3 +1,11 @@
+// http: //opentutorials.org:3000/main?id=HTML&page=12
+//     => 형식은 protocol: //host(domain):port/path?query string
+
+//     IP -
+//     IP를 알면 컴퓨터를 장악할 수 있다.
+
+// port
+//     각각의 프로그램마다 각각의 포트번호가 있는데, 그 포트번호를 통해 컴퓨터를 찾을 수 있다.
 const http = require('http');
 
 const port = 3030;
