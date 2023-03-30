@@ -12,6 +12,13 @@
 // function add(n1, n2) {
 //     return n1 + n2;
 // }
+function add2(n1, n2) {
+    return n1 + n2;
+}
+add = function(n1, n2) {
+    return n1 + n2;
+}
+test = (n1, n2) => n1 + n2;
 // result = add(1, 2); // 3
 // console.log(result); // 3
 

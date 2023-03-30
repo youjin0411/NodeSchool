@@ -9,3 +9,4 @@ console.log('hello' === 'hello'); //true
 
 console.log(0 == false); //true
 console.log(0 === false); //false
+console.log(0 === false) //false
