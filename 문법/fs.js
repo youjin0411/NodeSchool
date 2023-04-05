@@ -6,6 +6,11 @@ const fs = require('fs');
 // 절대 경로를 출력함. 
 console.log(__dirname);
 
-
+//해당 경로에 있는 파일 목록을 배열로 반환
 const files = fs.readdirSync(__dirname);
-console.log(files);
+
+// 특정 파일의 전체(절대) 경로를 반환
+result = __dirname + "\\" + files[1];
+
+// 해당 파일에대한 정보를 알 수 있음 
+console.log(fs.statSync(result));
