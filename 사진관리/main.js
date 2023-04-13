@@ -42,10 +42,32 @@ function getDuplicated(baseDir) {
     const arrayOfFiles = getAllFiles(baseDir, []);
     // 중복된 파일들(절대 경로) list
     const duplicatedFiles = [];
+
+    // file : 파일의 절대 경로(String)
+    arrayOfFiles.forEach((file, index) => {
+        // 절대 경로에서 파일이름만 추출
+        const fileName = path.basename(file);
+        // 같은 파일명을 가진 경로의 index를 찾는다. 
+        const duplicatedIdx = arrayOfFiles.findIndex((otherFile, otherIndex) => {
+                if (otherIndex > index && otherFile.includes(fileName)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            })
+            // 중복된 파일이 존재하면 중복된 파일의 절대 경로를 duplicatedFiles에 추가
+        if (duplicatedIdx > -1) {
+            const duplicatedFile = arrayOfFiles[duplicatedIdx];
+            duplicatedFiles.push(file); // 중복된 파일의 절대경로
+            duplicatedFiles.push(duplicatedFile); // 중복된 파일의 절대경로 
+        }
+    });
+    return duplicatedFiles;
 }
 
 // const files = getAllFiles(__dirname + "\\base", []);
 // const files = getAllFiles(path.join(__dirname, 'base'), []);
 // console.log(files.join('\n'));
 
-getDuplicated(path.join(__dirname, 'base'));
+const files = getDuplicated(path.join(__dirname, 'base'));
+console.log(files.join('\n'));
