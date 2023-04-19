@@ -62,8 +62,15 @@ function getDuplicated(baseDir) {
             duplicatedFiles.push(duplicatedFile); // 중복된 파일의 절대경로 
 
             const destPath = path.join(duplicatedDir, fileName);
-            fs.copyFileSync(file, destPath);
-            console.log(`${fileName}이(가) 중복되었습니다. ${destPath}로 복사되었습니다.`)
+            // fs.copyFileSync(file, destPath);
+            // console.log(`${fileName}이(가) 중복되었습니다. ${destPath}로 복사되었습니다.`)
+            fs.copyFile(file, destPath, (err) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                console.log(`${fileName}이(가) 중복되었습니다. ${destPath}로 복사되었습니다.`)
+            })
         }
     });
     return duplicatedFiles;
