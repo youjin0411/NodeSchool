@@ -23,7 +23,9 @@ console.log(path.basename(result)); // path.basename() 파일명만 반환
 
 const copiedFile = path.join(__dirname, "복사한파일.js"); // 파일 복사
 fs.copyFileSync(result, copiedFile); // 파일 복사
-fs.unlinkSync(copiedFile); // 파일 삭제
+
+const renameFile = path.join(__dirname, "변경할 파일.js"); // 파일 이름 변경
+fs.renameSync(copiedFile, renameFile); // 파일 이름 변경
 
 // 해당 파일에대한 정보를 알 수 있음 
 console.log(fs.statSync(result));
