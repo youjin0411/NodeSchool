@@ -17,7 +17,13 @@ const files = fs.readdirSync(__dirname);
 // join을 더 권장하는 이유는 경로방식을 운영체제에 맞게 자동으로 변경해줌. 
 // path.join 시험에 나옴.
 result = path.join(__dirname, files[1]);
-console.log(result)
+console.log(result);
+
+console.log(path.basename(result)); // path.basename() 파일명만 반환
+
+const copiedFile = path.join(__dirname, "복사한파일.js"); // 파일 복사
+fs.copyFileSync(result, copiedFile); // 파일 복사
+fs.unlinkSync(copiedFile); // 파일 삭제
 
 // 해당 파일에대한 정보를 알 수 있음 
 console.log(fs.statSync(result));
