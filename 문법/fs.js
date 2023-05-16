@@ -3,7 +3,7 @@ const path = require('path');
 
 // __dirname: 현재 파일의 경로를 나타냄.
 //C:\Program Files\nodejs\node.exe .\문법\fs.js (상대경로)
-//D:\2023_NODE\문법\fs.js (절대경로)
+//D:\2023_NODE\문법 (절대경로)
 // 절대 경로를 출력함. 
 console.log(__dirname);
 
@@ -20,12 +20,21 @@ result = path.join(__dirname, files[1]);
 console.log(result);
 
 console.log(path.basename(result)); // path.basename() 파일명만 반환
+console.log(files[1])
 
 const copiedFile = path.join(__dirname, "복사한파일.js"); // 파일 복사
 fs.copyFileSync(result, copiedFile); // 파일 복사
+console.log(copiedFile)
 
-const renameFile = path.join(__dirname, "변경할 파일.js"); // 파일 이름 변경
+// renameFile 변수는 변경할 파일의 경로를 나타냄
+// 변경할 파일은 현재 디렉토리에 있는 복사할 파일
+// 즉 복사한 파일의 이름을 변경할 파일의 이름으로 변경함
+const renameFile = path.join(__dirname, "변경할 파일.js");
 fs.renameSync(copiedFile, renameFile); // 파일 이름 변경
+
+const renameFile2 = path.join(__dirname, "teset01");
+fs.renameSync(renameFile2, "test02.txt");
+console.log(renameFile)
 
 // 해당 파일에대한 정보를 알 수 있음 
 console.log(fs.statSync(result));
