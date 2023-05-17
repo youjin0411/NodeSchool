@@ -17,11 +17,13 @@ const server = http.createServer(function(req, res) {
     if (req.url === '/') {
         //매개변수 첫번째는 파일의 경로, 두번째는 객체, 세번째는 콜백함수
         // renderFile(ejs대상경로, ejs에 넘겨줄 데이터, 이후에 실행할 callback)
-        ejs.renderFile(path.join(__dirname, 'template', 'index.ejs'), { name: index.name, here: index.here },
+        ejs.renderFile(path.join(__dirname, 'template', 'index.ejs'), { name: index.name, here: index.here })
             // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
-            function(err, data) {
-                res.end(data);
-            });
+            // function(err, data) {
+            //     res.end(data);
+            // }
+            // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
+            .then((data) => res.end(data));
     } else if (req.url === '/food') {
         fs.createReadStream(path.join(__dirname, 'html', 'food.html')).pipe(res);
         // 만약 경로가 /food가 아니라면 404.html 파일을 읽어서 응답으로 보내준다.
