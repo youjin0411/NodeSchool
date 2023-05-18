@@ -40,12 +40,12 @@ const server = http.createServer(function(req, res) {
         // fs.createReadStream(path.join(__dirname, 'html', 'food.html')).pipe(res);
         // 만약 경로가 /food가 아니라면 404.html 파일을 읽어서 응답으로 보내준다.
         ejs.renderFile(path.join(__dirname, 'template', 'food.ejs'), { 
-            name1: name.name1, 
-            food1: food.food1,
-            name2: name.name2, 
-            food2: food.food2,
-            name3: name.name3, 
-            food3: food.food3,
+            name1, 
+            food1,
+            name2, 
+            food2,
+            name3, 
+            food3,
         })
             // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
             // function(err, data) {
