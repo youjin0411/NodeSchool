@@ -9,6 +9,18 @@ const index = {
     here: '한국'
 };
 
+const name = {
+    name1: '아무개',
+    name2: '누구개',
+    name3: '이무개'
+}
+
+const food = {
+    food1: '쿠기',
+    food2: '도넛',
+    food3: '사탕'
+}
+
 const server = http.createServer(function(req, res) {
     console.log(req.method)
         // 서버에 요청이 들어오면 요청에 대한 응답을 보내준다.
@@ -25,8 +37,22 @@ const server = http.createServer(function(req, res) {
             // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
             .then((data) => res.end(data));
     } else if (req.url === '/food') {
-        fs.createReadStream(path.join(__dirname, 'html', 'food.html')).pipe(res);
+        // fs.createReadStream(path.join(__dirname, 'html', 'food.html')).pipe(res);
         // 만약 경로가 /food가 아니라면 404.html 파일을 읽어서 응답으로 보내준다.
+        ejs.renderFile(path.join(__dirname, 'template', 'food.ejs'), { 
+            name1: name.name1, 
+            food1: food.food1,
+            name2: name.name2, 
+            food2: food.food2,
+            name3: name.name3, 
+            food3: food.food3,
+        })
+            // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
+            // function(err, data) {
+            //     res.end(data);
+            // }
+            // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
+            .then((data) => res.end(data));
     } else {
         fs.createReadStream(path.join(__dirname, 'html', '404.html')).pipe(res);
     }
