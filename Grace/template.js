@@ -15,12 +15,13 @@ const name = {
     name3: '이무개'
 }
 
-const food = {
-    food1: '쿠기',
-    food2: '도넛',
-    food3: '사탕'
-}
+// const food = {
+//     food1: '쿠기',
+//     food2: '도넛',
+//     food3: '사탕'
+// }
 
+const food = ["떡볶이", "피자", "치킨"]
 const food1 = "쿠기"
 const food2 = "도넛"
 
@@ -44,11 +45,9 @@ const server = http.createServer(function(req, res) {
         // 만약 경로가 /food가 아니라면 404.html 파일을 읽어서 응답으로 보내준다.
         ejs.renderFile(path.join(__dirname, 'template', 'food.ejs'), { 
             name1: name.name1, 
-            food1,
             name2: name.name2, 
-            food2,
             name3: name.name3, 
-            food3: food.food3,
+            food
         })
             // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
             // function(err, data) {

@@ -9,9 +9,12 @@
 <body>
     <h1>내가 좋아하는 음식</h1>
     <ul>
-        <li style="font-size: 2rem"><%= name1 %>가 만든 <%= food1 %></li>
-        <li style="font-size: 2rem;"><%= name2 %>가 만든 <%= food2 %></li>
-        <li style="font-size: 2rem;"><%= name3 %>가 만든 <%= food3 %></li>
+        <% food.forEach(function(e){
+            <li><%= e %></ll>
+        <% }); %>
+        // <li style="font-size: 2rem"><%= name1 %>가 만든 <%= food[0] %></li>
+        // <li style="font-size: 2rem;"><%= name2 %>가 만든 <%= food[1] %></li>
+        // <li style="font-size: 2rem;"><%= name3 %>가 만든 <%= food[2] %></li>
     </ul>
 </body>
 
