@@ -41,20 +41,25 @@ const server = http.createServer(function(req, res) {
             // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
             .then((data) => res.end(data));
     } else if (req.url === '/food') {
-        // fs.createReadStream(path.join(__dirname, 'html', 'food.html')).pipe(res);
-        // 만약 경로가 /food가 아니라면 404.html 파일을 읽어서 응답으로 보내준다.
-        ejs.renderFile(path.join(__dirname, 'template', 'food.ejs'), { 
-            name1: name.name1, 
-            name2: name.name2, 
-            name3: name.name3, 
-            food
-        })
-            // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
-            // function(err, data) {
-            //     res.end(data);
-            // }
-            // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
-            .then((data) => res.end(data));
+        // // fs.createReadStream(path.join(__dirname, 'html', 'food.html')).pipe(res);
+        // // 만약 경로가 /food가 아니라면 404.html 파일을 읽어서 응답으로 보내준다.
+        // ejs.renderFile(path.join(__dirname, 'template', 'food.ejs'), { 
+        //     name1: name.name1, 
+        //     name2: name.name2, 
+        //     name3: name.name3, 
+        //     food
+        // })
+        //     // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
+        //     // function(err, data) {
+        //     //     res.end(data);
+        //     // }
+        //     // 데이터를 넘겨받은 ejs 코드(data)를 클라이언트에게 보낸다. 
+        //     .then((data) => res.end(data));
+
+        // 현재 경로에서 template을 들어간 다음 template 안의 food.ejs가져오기
+        ejs.renderFile(path.join(__dirname, 'template', 'food.ejs')
+        , {food: food})
+        .then((data) => res.end(data));
     } else {
         fs.createReadStream(path.join(__dirname, 'html', '404.html')).pipe(res);
     }
