@@ -1,6 +1,10 @@
 const express = require('express');
-
+const path = require('path')
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'Grace', 'html')));
+
+console.log(__dirname)
 
 // 모든 경로에 요청
 app.get('*', function(req, res, next){
