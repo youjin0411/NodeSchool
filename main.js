@@ -14,4 +14,11 @@ app.get('/', function(req, res, next) {
   next();
 });
 
+app.get('/test/:name', function(req,res,next){
+  console.log('path', req.path);           //'/test/kyj'
+  console.log('params', req.params.name);  //{name: 'kyj'}
+  console.log('query', req.query)          //{lang: 'ko'}
+  console.log('test중 콘솔을 보시오.')
+})
+
 app.listen(3333);
