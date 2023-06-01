@@ -9,7 +9,7 @@ let obj = {};
 console.log(obj.prop); //undefined
 
 // 위에 두 변수는 선언을 하였으나, 이번에는 선언 안 했다. 
-console.log(bar); //에러 발생, 선언 자체를 해 주지 않았기 때문에 error가 발생함.
+//console.log(bar); //에러 발생, 선언 자체를 해 주지 않았기 때문에 error가 발생함.
 
 let bar = null;
 console.log(bar); //null
@@ -25,3 +25,5 @@ console.log(null === undefined); //false
 let temp = null;
 let string = ''
 console.log(typeof temp); //object
+
+console.log(1 == true)

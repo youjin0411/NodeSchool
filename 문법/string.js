@@ -16,6 +16,7 @@ console.log(str.toLowerCase()); // hello world
 
 // 문자열 포함여부
 console.log(str.includes('world')); // true
+console.log(str.includes('bye'))
 console.log(str.includes('hello')); // false
 
 console.log(str); // Hello world

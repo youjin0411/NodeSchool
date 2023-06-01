@@ -11,7 +11,24 @@
     "dependencies": {
         "ejs": "^3.1.9"
     }
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
 }
 
-// package.json에서 
-// "dependencies" 속성
+
+package.json에서 
+"dependencies" 속성과 devDependencies는 npm i(install)을 하면 package가 설치된다. 
+devDependencies의 경우, 개발용으로만 필용한 패키지를 명세한다 
+
+dependencies와 devDependencies는 실제 서비스에서 사용할 모듈과 개발 단계에서만 사용할 모듈을 분리하는 용도의 속성이다.
+
+dependencies 
+> 일반적인 종속성과 관련된 라이브러리 
+- npm install 라이브러리 명령어로 설치
+
+devDependencies
+> 로컬 개발 환경 혹은 프로젝트 빌드에만 필요하거나 서비스 로직과 관련없는 개발 종속성을 가진 라이브러리
+- npm install --save-dev 
+- npm install -D 라이브러리명
+- npm install -g
