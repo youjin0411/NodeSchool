@@ -30,6 +30,7 @@ INSERT INTO player VALUES(3, 'zeus', 'top', 't1', 8, 3, 7);
 INSERT INTO player VALUES(4, 'gumayusi', 'ad', 't1', 12, 4, 2);
 INSERT INTO player VALUES(5, 'keria', 'sup', 't1', 2, 4, 8);
 
+-- 데이터 삽입 (C)
 INSERT INTO player (name, lane, team, kills, deaths, assists)
 VALUES
 ('bengi', 'jg', 't1', 4, 5, 17),

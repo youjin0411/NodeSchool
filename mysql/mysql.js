@@ -1,4 +1,4 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 const path = require('path')
 
 require('dotenv').config({
@@ -13,8 +13,18 @@ const pool = mysql.createPool({
     database: process.env.DB_DB,
 });
 
-pool.query("SELECT * FROM player", (err, results) => {
-    for (const r of results){
+pool.query("SELECT * FROM player")
+.then((result) => {
+    for(const r of result){
         console.log(r);
     }
 })
+.catch(err => {
+    console.error(err);
+})
+
+// pool.query("SELECT * FROM player", (err, results) => {
+//     for (const r of results){
+//         console.log(r);
+//     }
+// })
