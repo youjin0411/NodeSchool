@@ -13,6 +13,37 @@ const pool = mysql.createPool({
     database: process.env.DB_DB,
 });
 
+// const insertData = {
+//     name: 'bengi',
+//     lane: 'jg',
+//     team: 't1',
+//     kills: 5,
+//     deaths: 3,
+//     assists: 8
+// }
+
+// pool.query("INSERT INTO player SET ?", insertData)
+// .then(() => {
+//     console.log("INSERT 성공 ")
+// })
+// .catch(err => {
+//     console.log("에러입니다.")
+// })
+
+
+const updateData = {
+    name: "sungwoong",
+    kills: 15,
+    deaths: 10
+}
+
+pool.query("UPDATE player SET ? WHERE name = ? ", [updateData, "bengi"])
+.then(() => {
+    console.log("UPDATE 성공")
+})
+.catch(err => {
+    console.error(err);
+})
 pool.query("SELECT * FROM player")
 .then((result) => {
     for(const r of result){
